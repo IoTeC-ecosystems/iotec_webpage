@@ -78,6 +78,11 @@ app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor IoTeC corriendo en http://localhost:${PORT}`);
-});
+// Desarrollo local
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Servidor IoTeC corriendo en http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
