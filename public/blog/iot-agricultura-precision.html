@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agricultura de precisión con IoT — Blog IoTeC</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/blog.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header id="navbar" class="navbar scrolled">
+    <div class="container navbar__inner">
+      <a href="/" class="navbar__logo"><span class="logo-dot"></span>IoTeC</a>
+      <nav class="navbar__links" id="navLinks">
+        <a href="/">Inicio</a>
+        <a href="/#servicios">Servicios</a>
+        <a href="/#sectores">Sectores</a>
+        <a href="/#nosotros">Nosotros</a>
+        <a href="/#tecnologia">Tecnología</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/#contacto">Contacto</a>
+      </nav>
+      <a href="/#contacto" class="btn btn--primary navbar__cta">Contáctanos</a>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+  <div id="navOverlay" class="nav-overlay" role="presentation"></div>
+
+  <section class="post-hero">
+    <div class="container">
+      <span class="post-hero__cat">Agropecuario</span>
+      <h1>Agricultura de precisión con sensores IoT: caso de éxito</h1>
+      <div class="post-hero__meta">
+        <span><i class="fa-regular fa-calendar"></i> 20 Feb 2026</span>
+        <span><i class="fa-regular fa-clock"></i> 6 min lectura</span>
+        <span><i class="fa-regular fa-user"></i> Equipo IoTeC</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="post-main">
+    <div class="container post-layout">
+
+      <div>
+        <article class="post-body">
+
+          <h2>El reto: 800 hectáreas, datos dispersos y decisiones tardías</h2>
+          <p>
+            Nuestro cliente, una empresa agrícola con operaciones en el Bajío, cultivaba fresa y jitomate en
+            cerca de 800 hectáreas distribuidas en tres predios. Sus ingenieros agrónomos tomaban decisiones
+            de riego y fertilización basándose en muestras de suelo semanales y en la experiencia del personal
+            de campo, sin datos en tiempo real.
+          </p>
+          <p>
+            El resultado: desperdicio de agua estimado en 30 %, pérdidas de hasta el 12 % de la cosecha por
+            estrés hídrico o encharcamiento no detectado a tiempo, y altos costos de fertilizante por aplicación
+            sin correlación con el estado real del suelo.
+          </p>
+
+          <h2>La solución: red de sensores con conectividad LoRaWAN</h2>
+          <p>
+            Diseñamos e instalamos una red de <strong>180 nodos de sensores</strong> distribuidos en los tres
+            predios. Cada nodo, basado en STM32 de bajo consumo, integra:
+          </p>
+          <ul>
+            <li>Sensor de humedad y temperatura de suelo a dos profundidades (15 cm y 30 cm).</li>
+            <li>Sensor de conductividad eléctrica del suelo (indicador de salinidad/nutrientes).</li>
+            <li>Sensor de temperatura y humedad ambiente.</li>
+            <li>Módulo LoRa para transmisión a gateways distribuidos en el predio.</li>
+            <li>Panel solar de 2 W y batería LiPo de 3000 mAh (autonomía &gt; 18 meses sin mantenimiento).</li>
+          </ul>
+          <p>
+            Los gateways LoRaWAN retransmiten los datos vía LTE hacia Azure IoT Hub, desde donde un pipeline
+            de Python procesa y almacena la información en una base de datos de series temporales consultada
+            por Grafana.
+          </p>
+
+          <h2>Arquitectura resumida</h2>
+          <pre><code>Sensor STM32 → LoRa → Gateway LTE → Azure IoT Hub
+                                          ↓
+                               Pipeline Python (procesamiento)
+                                          ↓
+                               Grafana (dashboards) + Alertas SMS</code></pre>
+
+          <h2>Algoritmo de riego inteligente</h2>
+          <p>
+            Un script Python ejecutándose en el edge analiza los datos de cada zona y calcula la
+            <em>evapotranspiración de referencia (ET₀)</em> con el método Penman-Monteith simplificado.
+            Combinando ET₀ con la lectura de humedad de suelo y el pronóstico climático de la API
+            meteorológica local, el sistema genera recomendaciones de riego con una resolución de 4 horas
+            y zona a zona.
+          </p>
+          <blockquote>
+            "Antes tardábamos una semana en saber si había zonas con estrés hídrico. Ahora recibimos una
+            alerta en el teléfono a los 20 minutos de que una zona baja del umbral crítico."
+            — Ing. Agrónomo responsable del proyecto.
+          </blockquote>
+
+          <h2>Resultados a los 6 meses</h2>
+          <ul>
+            <li><strong>Ahorro de agua:</strong> 27 % comparado con la temporada anterior equivalente.</li>
+            <li><strong>Reducción de pérdidas por cosecha:</strong> del 12 % al 3.5 %.</li>
+            <li><strong>Ahorro en fertilizante:</strong> 18 % al aplicar solo cuando la conductividad
+              eléctrica del suelo lo justificaba.</li>
+            <li><strong>ROI estimado:</strong> recuperación de la inversión en 11 meses.</li>
+          </ul>
+
+          <h2>Lecciones aprendidas</h2>
+          <p>
+            Más allá de los números, el proyecto dejó aprendizajes aplicables a cualquier implementación
+            IoT en el sector agropecuario:
+          </p>
+          <ul>
+            <li><strong>La calibración in-situ es crucial.</strong> Los sensores de humedad de suelo requieren
+              calibración específica para el tipo de suelo de cada predio; los coeficientes de fábrica pueden
+              introducir errores de hasta el 15 %.</li>
+            <li><strong>La conectividad rural es el mayor cuello de botella.</strong> LoRaWAN con gateways
+              estratégicos superó las limitaciones de cobertura celular, especialmente en zonas con cañadas.</li>
+            <li><strong>El usuario final define el éxito.</strong> La adopción del sistema dependió de
+              dashboards simples y alertas SMS, no de una plataforma técnica sofisticada.</li>
+          </ul>
+
+          <div class="post-tags">
+            <strong>Etiquetas:</strong>
+            <a href="#" class="sidebar-tag">Agropecuario</a>
+            <a href="#" class="sidebar-tag">LoRaWAN</a>
+            <a href="#" class="sidebar-tag">STM32</a>
+            <a href="#" class="sidebar-tag">Python</a>
+            <a href="#" class="sidebar-tag">Precision Farming</a>
+            <a href="#" class="sidebar-tag">Grafana</a>
+          </div>
+
+        </article>
+
+        <nav class="post-nav">
+          <a href="/blog/mqtt-vs-http-iot" class="post-nav__item">
+            <span>← Anterior</span>
+            <strong>MQTT vs. HTTP en IoT</strong>
+          </a>
+          <a href="/blog" class="post-nav__item post-nav__item--next">
+            <span>Ver todos →</span>
+            <strong>Todos los artículos</strong>
+          </a>
+        </nav>
+      </div>
+
+      <aside class="blog-sidebar">
+        <div class="sidebar-widget">
+          <h4>Sobre este artículo</h4>
+          <ul class="sidebar-recent">
+            <li><span class="sidebar-recent__title">Lectura: 6 minutos</span></li>
+            <li><span class="sidebar-recent__title">Categoría: Agropecuario</span></li>
+            <li><span class="sidebar-recent__title">Autor: Equipo IoTeC</span></li>
+            <li><span class="sidebar-recent__date">Publicado: 20 Feb 2026</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h4>Recientes</h4>
+          <ul class="sidebar-recent">
+            <li>
+              <a href="/blog/introduccion-iot-industrial">
+                <span class="sidebar-recent__title">Introducción al IoT Industrial</span>
+                <span class="sidebar-recent__date">10 Mar 2026</span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog/mqtt-vs-http-iot">
+                <span class="sidebar-recent__title">MQTT vs. HTTP en IoT</span>
+                <span class="sidebar-recent__date">2 Mar 2026</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h4>Etiquetas</h4>
+          <div class="sidebar-tags">
+            <a href="#" class="sidebar-tag">IoT</a>
+            <a href="#" class="sidebar-tag">MQTT</a>
+            <a href="#" class="sidebar-tag">Python</a>
+            <a href="#" class="sidebar-tag">STM32</a>
+            <a href="#" class="sidebar-tag">LoRaWAN</a>
+            <a href="#" class="sidebar-tag">Agricultura</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="navbar__logo footer__logo"><span class="logo-dot"></span>IoTeC</a>
+        <p>Conectando el presente con el futuro a través del Internet de las Cosas.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> IoTeC. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    const overlay   = document.getElementById('navOverlay');
+    function openMenu()  { navLinks.classList.add('open'); overlay.classList.add('active'); document.body.classList.add('no-scroll'); hamburger.setAttribute('aria-expanded','true'); }
+    function closeMenu() { navLinks.classList.remove('open'); overlay.classList.remove('active'); document.body.classList.remove('no-scroll'); hamburger.setAttribute('aria-expanded','false'); }
+    hamburger.addEventListener('click', () => navLinks.classList.contains('open') ? closeMenu() : openMenu());
+    overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

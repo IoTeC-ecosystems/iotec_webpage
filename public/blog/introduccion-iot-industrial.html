@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introducción al IoT Industrial — Blog IoTeC</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/blog.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header id="navbar" class="navbar scrolled">
+    <div class="container navbar__inner">
+      <a href="/" class="navbar__logo"><span class="logo-dot"></span>IoTeC</a>
+      <nav class="navbar__links" id="navLinks">
+        <a href="/">Inicio</a>
+        <a href="/#servicios">Servicios</a>
+        <a href="/#sectores">Sectores</a>
+        <a href="/#nosotros">Nosotros</a>
+        <a href="/#tecnologia">Tecnología</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/#contacto">Contacto</a>
+      </nav>
+      <a href="/#contacto" class="btn btn--primary navbar__cta">Contáctanos</a>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+  <div id="navOverlay" class="nav-overlay" role="presentation"></div>
+
+  <!-- POST HERO -->
+  <section class="post-hero">
+    <div class="container">
+      <span class="post-hero__cat">Manufactura</span>
+      <h1>Introducción al IoT Industrial: transformando la manufactura</h1>
+      <div class="post-hero__meta">
+        <span><i class="fa-regular fa-calendar"></i> 10 Mar 2026</span>
+        <span><i class="fa-regular fa-clock"></i> 5 min lectura</span>
+        <span><i class="fa-regular fa-user"></i> Equipo IoTeC</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST CONTENT -->
+  <main class="post-main">
+    <div class="container post-layout">
+
+      <div>
+        <article class="post-body">
+
+          <h2>¿Qué es el IoT Industrial?</h2>
+          <p>
+            El Internet de las Cosas Industrial (IIoT) es la aplicación de tecnologías de conectividad, sensores y
+            análisis de datos al entorno de la manufactura y los procesos productivos. A diferencia del IoT de consumo,
+            el IIoT opera bajo requisitos estrictos de fiabilidad, latencia y seguridad, donde una falla puede traducirse
+            en pérdidas millonarias o riesgos para los operadores.
+          </p>
+          <p>
+            En el contexto de la <strong>Industria 4.0</strong>, el IIoT es el tejido conectivo que une máquinas,
+            sistemas de control (PLC, SCADA) y plataformas de análisis en la nube para crear lo que se conoce como
+            la fábrica inteligente (<em>smart factory</em>).
+          </p>
+
+          <h2>Componentes clave de una arquitectura IIoT</h2>
+          <p>Una solución IIoT típica consta de cuatro capas:</p>
+          <ul>
+            <li><strong>Capa de percepción:</strong> sensores de temperatura, vibración, presión, corriente, encoders y
+              cámaras de visión industrial que convierten fenómenos físicos en señales digitales.</li>
+            <li><strong>Capa de conectividad:</strong> protocolos de comunicación como MQTT, OPC-UA, Modbus TCP/IP e
+              industrial Ethernet que transportan los datos hasta la pasarela o la nube.</li>
+            <li><strong>Capa de procesamiento:</strong> plataformas edge (Raspberry Pi, STM32, gateways industriales) y
+              servicios en la nube (Azure IoT Hub, Apache Kafka) donde los datos se filtran, agregan y analizan.</li>
+            <li><strong>Capa de aplicación:</strong> dashboards en Grafana, sistemas MES/ERP y modelos de machine
+              learning que convierten los datos en decisiones.</li>
+          </ul>
+
+          <h2>Beneficios comprobados en manufactura</h2>
+          <p>
+            En proyectos implementados por IoTeC en el sector manufacturero del Bajío hemos medido de manera
+            consistente los siguientes resultados:
+          </p>
+          <ul>
+            <li>Reducción del <strong>tiempo de paro no planificado</strong> entre un 20 % y un 35 % mediante
+              mantenimiento predictivo basado en análisis de vibración.</li>
+            <li>Mejora de la <strong>eficiencia energética</strong> de 12 % a 18 % al monitorear y optimizar el
+              consumo por línea de producción.</li>
+            <li>Disminución del <strong>desperdicio de materia prima</strong> del 8 % al correlacionar parámetros
+              de proceso con defectos de calidad en tiempo real.</li>
+          </ul>
+
+          <h2>Un caso real: monitoreo de prensas hidráulicas</h2>
+          <p>
+            En una planta de autopartes en León, Guanajuato, instalamos sensores de presión y acelerómetros en
+            12 prensas hidráulicas. Los datos se enviaban vía MQTT a un broker local, desde donde Kafka distribuía
+            el flujo hacia un modelo de detección de anomalías en Python y hacia Grafana para visualización en tiempo
+            real.
+          </p>
+          <blockquote>
+            "Antes de IoTeC, la falla de una prensa nos paraba la línea por 6 horas en promedio. Hoy la detectamos
+            48 horas antes y programamos el mantenimiento sin parar la producción."
+            — Jefe de Mantenimiento, cliente del sector automotriz.
+          </blockquote>
+          <p>
+            El retorno de inversión (ROI) del proyecto se alcanzó en menos de 14 meses, considerando solo el ahorro
+            en tiempos de paro.
+          </p>
+
+          <h2>¿Por dónde empezar?</h2>
+          <p>
+            La barrera de entrada al IIoT ha disminuido considerablemente en los últimos años. Sin embargo, el mayor
+            riesgo no es tecnológico: es comenzar con un caso de uso demasiado amplio. Recomendamos:
+          </p>
+          <ol>
+            <li>Identificar <strong>un proceso crítico</strong> con KPIs claros (OEE, consumo energético, tasa de
+              defectos).</li>
+            <li>Diseñar un <strong>piloto acotado</strong> con 2 a 5 máquinas y un horizonte de 3 meses.</li>
+            <li>Medir, validar y escalar con los aprendizajes del piloto.</li>
+          </ol>
+          <p>
+            Si quieres explorar cómo aplicar IIoT en tu planta,
+            <a href="/#contacto">contáctanos</a> y un especialista IoTeC te orientará sin costo.
+          </p>
+
+          <div class="post-tags">
+            <strong>Etiquetas:</strong>
+            <a href="#" class="sidebar-tag">IoT Industrial</a>
+            <a href="#" class="sidebar-tag">Manufactura</a>
+            <a href="#" class="sidebar-tag">IIoT</a>
+            <a href="#" class="sidebar-tag">MQTT</a>
+            <a href="#" class="sidebar-tag">Grafana</a>
+          </div>
+
+        </article>
+
+        <!-- Post navigation -->
+        <nav class="post-nav" aria-label="Artículos relacionados">
+          <a href="/blog" class="post-nav__item">
+            <span>← Volver al blog</span>
+            <strong>Todos los artículos</strong>
+          </a>
+          <a href="/blog/mqtt-vs-http-iot" class="post-nav__item post-nav__item--next">
+            <span>Siguiente →</span>
+            <strong>MQTT vs. HTTP en IoT</strong>
+          </a>
+        </nav>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+        <div class="sidebar-widget">
+          <h4>Sobre este artículo</h4>
+          <ul class="sidebar-recent">
+            <li><span class="sidebar-recent__title">Lectura: 5 minutos</span></li>
+            <li><span class="sidebar-recent__title">Categoría: Manufactura</span></li>
+            <li><span class="sidebar-recent__title">Autor: Equipo IoTeC</span></li>
+            <li><span class="sidebar-recent__date">Publicado: 10 Mar 2026</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h4>Recientes</h4>
+          <ul class="sidebar-recent">
+            <li>
+              <a href="/blog/mqtt-vs-http-iot">
+                <span class="sidebar-recent__title">MQTT vs. HTTP en IoT</span>
+                <span class="sidebar-recent__date">2 Mar 2026</span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog/iot-agricultura-precision">
+                <span class="sidebar-recent__title">Agricultura de precisión con IoT</span>
+                <span class="sidebar-recent__date">20 Feb 2026</span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog/kafka-iot-streaming">
+                <span class="sidebar-recent__title">Apache Kafka para IoT en tiempo real</span>
+                <span class="sidebar-recent__date">12 Feb 2026</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h4>Etiquetas</h4>
+          <div class="sidebar-tags">
+            <a href="#" class="sidebar-tag">IoT</a>
+            <a href="#" class="sidebar-tag">MQTT</a>
+            <a href="#" class="sidebar-tag">Python</a>
+            <a href="#" class="sidebar-tag">STM32</a>
+            <a href="#" class="sidebar-tag">Kafka</a>
+            <a href="#" class="sidebar-tag">Grafana</a>
+            <a href="#" class="sidebar-tag">Manufactura</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="navbar__logo footer__logo"><span class="logo-dot"></span>IoTeC</a>
+        <p>Conectando el presente con el futuro a través del Internet de las Cosas.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> IoTeC. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    const overlay   = document.getElementById('navOverlay');
+    function openMenu()  { navLinks.classList.add('open'); overlay.classList.add('active'); document.body.classList.add('no-scroll'); hamburger.setAttribute('aria-expanded','true'); }
+    function closeMenu() { navLinks.classList.remove('open'); overlay.classList.remove('active'); document.body.classList.remove('no-scroll'); hamburger.setAttribute('aria-expanded','false'); }
+    hamburger.addEventListener('click', () => navLinks.classList.contains('open') ? closeMenu() : openMenu());
+    overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

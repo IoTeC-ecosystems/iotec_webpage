@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IoTeC — Soluciones IoT</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Font Awesome para iconos -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header id="navbar" class="navbar">
+    <div class="container navbar__inner">
+      <a href="#inicio" class="navbar__logo">
+        <span class="logo-dot"></span>IoTeC
+      </a>
+      <nav class="navbar__links" id="navLinks">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#sectores">Sectores</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#tecnologia">Tecnología</a>
+        <a href="/blog">Blog</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="#contacto" class="btn btn--primary navbar__cta">Contáctanos</a>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+  <div id="navOverlay" class="nav-overlay" role="presentation"></div>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="inicio" class="hero">
+    <div class="hero__bg-shapes">
+      <div class="shape shape--1"></div>
+      <div class="shape shape--2"></div>
+      <div class="shape shape--3"></div>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <span class="hero__badge"><i class="fa-solid fa-circle-dot"></i> Innovación IoT Industrial</span>
+        <h1 class="hero__title">
+          Conectamos el Mundo Físico con el <span class="highlight">Digital</span>
+        </h1>
+        <p class="hero__subtitle">
+          Soluciones IoT especializadas para los sectores manufacturero, agropecuario, energético, transporte &amp; logística y monitoreo ambiental.
+        </p>
+        <div class="hero__actions">
+          <a href="#servicios" class="btn btn--primary btn--lg">Nuestros Servicios</a>
+          <a href="#nosotros" class="btn btn--outline btn--lg">Conoce IoTeC</a>
+        </div>
+      </div>
+      <div class="hero__graphic">
+        <div class="iot-diagram">
+          <div class="iot-center">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div class="iot-node node--1"><i class="fa-solid fa-industry"></i></div>
+          <div class="iot-node node--2"><i class="fa-solid fa-seedling"></i></div>
+          <div class="iot-node node--3"><i class="fa-solid fa-bolt"></i></div>
+          <div class="iot-node node--4"><i class="fa-solid fa-truck-fast"></i></div>
+          <div class="iot-node node--5"><i class="fa-solid fa-leaf"></i></div>
+          <div class="iot-node node--6"><i class="fa-solid fa-cloud"></i></div>
+          <svg class="iot-lines" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <line x1="150" y1="150" x2="150" y2="30" class="iot-line" />
+            <line x1="150" y1="150" x2="255" y2="90" class="iot-line" />
+            <line x1="150" y1="150" x2="255" y2="210" class="iot-line" />
+            <line x1="150" y1="150" x2="150" y2="270" class="iot-line" />
+            <line x1="150" y1="150" x2="45" y2="210" class="iot-line" />
+            <line x1="150" y1="150" x2="45" y2="90" class="iot-line" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <a href="#servicios" class="hero__scroll-down">
+      <i class="fa-solid fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ===================== SERVICIOS ===================== -->
+  <section id="servicios" class="services section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Lo que hacemos</span>
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <p class="section-desc">Desarrollamos e integramos soluciones IoT end-to-end adaptadas a las necesidades específicas de cada sector productivo.</p>
+      </div>
+      <div class="services__grid">
+        <div class="service-card" data-aos data-delay="0">
+          <div class="service-card__icon" style="--icon-color: var(--blue-500);">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h3>Conectividad IoT</h3>
+          <p>Redes de sensores y dispositivos conectados mediante MQTT, LoRa, Zigbee y NB-IoT, desplegadas en campo, nave industrial o entorno rural.</p>
+          <a href="#contacto" class="service-card__link">Saber más <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos data-delay="100">
+          <div class="service-card__icon" style="--icon-color: var(--green-500);">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3>Monitoreo en Tiempo Real</h3>
+          <p>Dashboards y alertas para supervisar variables críticas: temperatura, humedad, consumo energético, posición GPS y calidad del aire.</p>
+          <a href="#contacto" class="service-card__link">Saber más <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos data-delay="200">
+          <div class="service-card__icon" style="--icon-color: var(--blue-400);">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <h3>Plataforma en la Nube</h3>
+          <p>Integración con Azure IoT Hub para almacenamiento, procesamiento y análisis de datos sectoriales a escala.</p>
+          <a href="#contacto" class="service-card__link">Saber más <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos data-delay="100">
+          <div class="service-card__icon" style="--icon-color: var(--green-400);">
+            <i class="fa-solid fa-gears"></i>
+          </div>
+          <h3>Automatización de Procesos</h3>
+          <p>Control automático de maquinaria, riego, subestaciones eléctricas y flota de vehículos mediante edge computing y PLCs conectados.</p>
+          <a href="#contacto" class="service-card__link">Saber más <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos data-delay="200">
+          <div class="service-card__icon" style="--icon-color: var(--blue-600);">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3>Ciberseguridad IoT</h3>
+          <p>Protección de infraestructura crítica con cifrado de extremo a extremo, autenticación de dispositivos y auditorías de seguridad.</p>
+          <a href="#contacto" class="service-card__link">Saber más <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos data-delay="300">
+          <div class="service-card__icon" style="--icon-color: var(--green-600);">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3>Analítica e IA</h3>
+          <p>Modelos de machine learning para mantenimiento predictivo, detección de plagas, pronóstico de demanda energética y optimización de rutas.</p>
+          <a href="#contacto" class="service-card__link">Saber más <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTORES ===================== -->
+  <section id="sectores" class="sectors section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Dónde operamos</span>
+        <h2 class="section-title">Sectores que Atendemos</h2>
+        <p class="section-desc">Nuestra experiencia y tecnología están enfocadas en cinco sectores productivos clave para el desarrollo del país.</p>
+      </div>
+      <div class="sectors__grid">
+
+        <div class="sector-card" data-aos data-delay="0">
+          <div class="sector-card__header">
+            <div class="sector-card__icon">
+              <i class="fa-solid fa-industry"></i>
+            </div>
+            <h3>Manufacturero</h3>
+          </div>
+          <p>Optimizamos líneas de producción con monitoreo en tiempo real de maquinaria, control de calidad automatizado y mantenimiento predictivo para reducir paros no planeados.</p>
+          <ul class="sector-card__tags">
+            <li>Mantenimiento predictivo</li>
+            <li>Control de calidad</li>
+            <li>Gestión de activos</li>
+          </ul>
+        </div>
+
+        <div class="sector-card" data-aos data-delay="100">
+          <div class="sector-card__header">
+            <div class="sector-card__icon">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <h3>Agropecuario</h3>
+          </div>
+          <p>Implementamos agricultura y ganadería de precisión con sensores de suelo, clima y agua, sistemas de riego inteligente y trazabilidad de cultivos y ganado.</p>
+          <ul class="sector-card__tags">
+            <li>Riego inteligente</li>
+            <li>Monitoreo de suelo</li>
+            <li>Trazabilidad ganadera</li>
+          </ul>
+        </div>
+
+        <div class="sector-card" data-aos data-delay="200">
+          <div class="sector-card__header">
+            <div class="sector-card__icon">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3>Energético</h3>
+          </div>
+          <p>Monitoreamos generación, transmisión y consumo de energía en instalaciones industriales, plantas renovables y subestaciones para maximizar la eficiencia energética.</p>
+          <ul class="sector-card__tags">
+            <li>Medición inteligente</li>
+            <li>Energías renovables</li>
+            <li>Gestión de demanda</li>
+          </ul>
+        </div>
+
+        <div class="sector-card" data-aos data-delay="300">
+          <div class="sector-card__header">
+            <div class="sector-card__icon">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <h3>Transporte y Logística</h3>
+          </div>
+          <p>Rastreamos flotas, controlamos condiciones de carga (temperatura, humedad) y optimizamos rutas en tiempo real para mejorar tiempos de entrega y reducir costos operativos.</p>
+          <ul class="sector-card__tags">
+            <li>Rastreo GPS de flota</li>
+            <li>Cadena de frío</li>
+            <li>Optimización de rutas</li>
+          </ul>
+        </div>
+
+        <div class="sector-card sector-card--wide" data-aos data-delay="200">
+          <div class="sector-card__header">
+            <div class="sector-card__icon">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+            <h3>Monitoreo Ambiental</h3>
+          </div>
+          <p>Desplegamos redes de estaciones remotas para medición continua de calidad del aire, agua, ruido y variables meteorológicas, apoyando el cumplimiento normativo y la toma de decisiones ambientales.</p>
+          <ul class="sector-card__tags">
+            <li>Calidad del aire</li>
+            <li>Calidad del agua</li>
+            <li>Estaciones meteorológicas</li>
+            <li>Cumplimiento normativo</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NOSOTROS ===================== -->
+  <section id="nosotros" class="about section">
+    <div class="container about__inner">
+      <div class="about__visual" data-aos>
+        <div class="about__img-wrap">
+          <div class="about__img-placeholder">
+            <i class="fa-solid fa-microchip fa-4x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="about__content" data-aos>
+        <span class="section-tag">Quiénes somos</span>
+        <h2 class="section-title">Tecnología IoT especializada para la industria</h2>
+        <p>En IoTeC somos un equipo de ingenieros y especialistas con profundo conocimiento en los sectores manufacturero, agropecuario, energético, de transporte &amp; logística y monitoreo ambiental. Digitalizamos operaciones y medimos lo que importa.</p>
+        <p>Nuestro enfoque combina hardware robusto para entornos exigentes, software escalable en la nube y analítica avanzada para convertir datos en decisiones, adaptado a cada sector y cada cliente.</p>
+        <ul class="about__features">
+          <li><i class="fa-solid fa-circle-check"></i> Equipo multidisciplinario con experiencia sectorial comprobada</li>
+          <li><i class="fa-solid fa-circle-check"></i> Soluciones a medida para entornos industriales y rurales</li>
+          <li><i class="fa-solid fa-circle-check"></i> Soporte técnico 24/7 y monitoreo post-implementación</li>
+          <li><i class="fa-solid fa-circle-check"></i> Integración con sistemas existentes (ERP, SCADA, MES, WMS)</li>
+        </ul>
+        <a href="#contacto" class="btn btn--primary">Habla con un experto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TECNOLOGÍA ===================== -->
+  <section id="tecnologia" class="tech section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Nuestro stack</span>
+        <h2 class="section-title">Tecnologías que usamos</h2>
+        <p class="section-desc">Trabajamos con las mejores herramientas y plataformas del ecosistema IoT.</p>
+      </div>
+      <div class="tech__grid" data-aos>
+        <div class="tech-item"><i class="fa-solid fa-cloud"></i><span>Azure IoT</span></div>
+        <div class="tech-item"><i class="fa-solid fa-server"></i><span>MQTT Broker</span></div>
+        <div class="tech-item"><i class="fa-solid fa-cube"></i><span>Docker</span></div>
+        <div class="tech-item"><i class="fa-solid fa-stream"></i><span>Apache Kafka</span></div>
+        <div class="tech-item"><i class="fa-solid fa-chart-bar"></i><span>Grafana</span></div>
+        <div class="tech-item"><i class="fa-brands fa-raspberry-pi"></i><span>Raspberry Pi</span></div>
+        <div class="tech-item"><i class="fa-solid fa-microchip"></i><span>STM32</span></div>
+        <div class="tech-item"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+        <div class="tech-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="tech-item"><i class="fa-solid fa-lock"></i><span>TLS/SSL</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESO ===================== -->
+  <section class="process section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Cómo trabajamos</span>
+        <h2 class="section-title">Nuestro Proceso</h2>
+        <p class="section-desc">Un metodología probada para llevarte del concepto al producto en producción.</p>
+      </div>
+      <div class="process__steps">
+        <div class="process-step" data-aos data-delay="0">
+          <div class="process-step__num">01</div>
+          <div class="process-step__content">
+            <h3>Consultoría y Análisis</h3>
+            <p>Entendemos tus necesidades, mapeamos tus procesos y definimos los KPIs que quieres mejorar.</p>
+          </div>
+        </div>
+        <div class="process-step" data-aos data-delay="100">
+          <div class="process-step__num">02</div>
+          <div class="process-step__content">
+            <h3>Diseño de Arquitectura</h3>
+            <p>Diseñamos la solución: hardware, protocolos, plataforma cloud y capa de visualización.</p>
+          </div>
+        </div>
+        <div class="process-step" data-aos data-delay="200">
+          <div class="process-step__num">03</div>
+          <div class="process-step__content">
+            <h3>Desarrollo e Integración</h3>
+            <p>Desarrollamos e integramos todos los componentes, con pruebas continuas y validación en campo.</p>
+          </div>
+        </div>
+        <div class="process-step" data-aos data-delay="300">
+          <div class="process-step__num">04</div>
+          <div class="process-step__content">
+            <h3>Despliegue y Soporte</h3>
+            <p>Desplegamos la solución en producción y brindamos soporte continuo para asegurar el máximo rendimiento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BLOG ===================== -->
+  <section id="blog" class="blog-preview section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-tag">Artículos y recursos</span>
+        <h2 class="section-title">Nuestro Blog</h2>
+        <p class="section-desc">Exploramos tendencias, casos de uso y buenas prácticas del ecosistema IoT industrial.</p>
+      </div>
+      <div class="blog-preview__grid">
+        <article class="blog-card" data-aos data-delay="0">
+          <a href="/blog/introduccion-iot-industrial" class="blog-card__img-wrap">
+            <div class="blog-card__img-placeholder"><i class="fa-solid fa-industry fa-2x"></i></div>
+          </a>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Manufactura</span>
+            <h3><a href="/blog/introduccion-iot-industrial">Introducción al IoT Industrial: transformando la manufactura</a></h3>
+            <p>Cómo la conectividad de máquinas y sensores está redefiniendo los procesos de producción en plantas manufactureras modernas.</p>
+            <div class="blog-card__meta">
+              <span><i class="fa-regular fa-calendar"></i> 10 Mar 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 5 min</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card" data-aos data-delay="100">
+          <a href="/blog/mqtt-vs-http-iot" class="blog-card__img-wrap">
+            <div class="blog-card__img-placeholder"><i class="fa-solid fa-network-wired fa-2x"></i></div>
+          </a>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Tecnología</span>
+            <h3><a href="/blog/mqtt-vs-http-iot">MQTT vs. HTTP en aplicaciones IoT: ¿cuál elegir?</a></h3>
+            <p>Comparativa técnica entre los dos protocolos más usados en IoT, con ejemplos de cuándo aplicar cada uno en entornos industriales.</p>
+            <div class="blog-card__meta">
+              <span><i class="fa-regular fa-calendar"></i> 2 Mar 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 7 min</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card" data-aos data-delay="200">
+          <a href="/blog/iot-agricultura-precision" class="blog-card__img-wrap">
+            <div class="blog-card__img-placeholder"><i class="fa-solid fa-seedling fa-2x"></i></div>
+          </a>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Agropecuario</span>
+            <h3><a href="/blog/iot-agricultura-precision">Agricultura de precisión con sensores IoT: caso de éxito</a></h3>
+            <p>Un recorrido por la implementación de monitoreo de suelos, microclima y riego automatizado en una empresa agrícola del Bajío.</p>
+            <div class="blog-card__meta">
+              <span><i class="fa-regular fa-calendar"></i> 20 Feb 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 6 min</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="blog-preview__cta" data-aos>
+        <a href="/blog" class="btn btn--primary">Ver todos los artículos <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section id="contacto" class="contact section">
+    <div class="container contact__inner">
+      <div class="contact__info" data-aos>
+        <span class="section-tag">Hablemos</span>
+        <h2 class="section-title">¿Listo para impulsar tu empresa con IoT?</h2>
+        <p>Cuéntanos tu proyecto y un especialista se pondrá en contacto contigo a la brevedad.</p>
+        <ul class="contact__details">
+          <li>
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div><strong>Email</strong><span>iotec_infra@outlook.com</span></div>
+          </li>
+          <li>
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div><strong>Teléfono</strong><span>-</span></div>
+          </li>
+          <li>
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div><strong>Ubicación</strong><span>León de los Aldama, Gto, México</span></div>
+          </li>
+        </ul>
+        <div class="contact__social">
+          <a href="https://www.linkedin.com/company/iotec-ecosystems/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/IoTeC-ecosystems" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+      <div class="contact__form-wrap" data-aos>
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. María García" required />
+            <span class="form-error" id="error-nombre"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico *</label>
+            <input type="email" id="email" name="email" placeholder="tu@empresa.com" required />
+            <span class="form-error" id="error-email"></span>
+          </div>
+          <div class="form-group">
+            <label for="asunto">Asunto</label>
+            <select id="asunto" name="asunto">
+              <option value="">Selecciona un tema</option>
+              <option value="Sector Manufacturero">Sector Manufacturero</option>
+              <option value="Sector Agropecuario">Sector Agropecuario</option>
+              <option value="Sector Energético">Sector Energético</option>
+              <option value="Transporte y Logística">Transporte y Logística</option>
+              <option value="Monitoreo Ambiental">Monitoreo Ambiental</option>
+              <option value="Consultoría IoT">Consultoría IoT general</option>
+              <option value="Soporte técnico">Soporte técnico</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto…" required></textarea>
+            <span class="form-error" id="error-mensaje"></span>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+            <span class="btn-text">Enviar mensaje</span>
+            <span class="btn-spinner" style="display:none;"><i class="fa-solid fa-spinner fa-spin"></i></span>
+          </button>
+          <div id="formAlert" class="form-alert" style="display:none;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#inicio" class="navbar__logo footer__logo">
+          <span class="logo-dot"></span>IoTeC
+        </a>
+        <p>Conectando el presente con el futuro a través del Internet de las Cosas.</p>
+        <div class="contact__social footer__social">
+          <a href="https://www.linkedin.com/company/iotec-ecosystems/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/IoTeC-ecosystems" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#sectores">Sectores</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#tecnologia">Tecnología</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Sectores</h4>
+        <ul>
+          <li><a href="#sectores">Manufacturero</a></li>
+          <li><a href="#sectores">Agropecuario</a></li>
+          <li><a href="#sectores">Energético</a></li>
+          <li><a href="#sectores">Transporte y Logística</a></li>
+          <li><a href="#sectores">Monitoreo Ambiental</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:iotec_infra@outlook.com"><i class="fa-solid fa-envelope"></i> iotec_infra@outlook.com</a></li>
+          <li><span><i class="fa-solid fa-location-dot"></i> León de los Aldama, Gto, México</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> IoTeC. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

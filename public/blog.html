@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — IoTeC</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/blog.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header id="navbar" class="navbar scrolled">
+    <div class="container navbar__inner">
+      <a href="/" class="navbar__logo">
+        <span class="logo-dot"></span>IoTeC
+      </a>
+      <nav class="navbar__links" id="navLinks">
+        <a href="/">Inicio</a>
+        <a href="/#servicios">Servicios</a>
+        <a href="/#sectores">Sectores</a>
+        <a href="/#nosotros">Nosotros</a>
+        <a href="/#tecnologia">Tecnología</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/#contacto">Contacto</a>
+      </nav>
+      <a href="/#contacto" class="btn btn--primary navbar__cta">Contáctanos</a>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+  <div id="navOverlay" class="nav-overlay" role="presentation"></div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="blog-hero">
+    <div class="container">
+      <span class="section-tag">Artículos y recursos</span>
+      <h1>Blog IoTeC</h1>
+      <p>Tendencias, casos de uso y buenas prácticas del ecosistema IoT industrial.</p>
+    </div>
+  </section>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="blog-main">
+    <div class="container blog-layout">
+
+      <!-- POSTS -->
+      <div class="blog-posts">
+
+        <!-- Artículo destacado -->
+        <article class="blog-card blog-card--featured">
+          <a href="/blog/introduccion-iot-industrial" class="blog-card__img-wrap">
+            <div class="blog-card__img-placeholder"><i class="fa-solid fa-industry fa-3x"></i></div>
+          </a>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Manufactura</span>
+            <h2><a href="/blog/introduccion-iot-industrial">Introducción al IoT Industrial: transformando la manufactura</a></h2>
+            <p>Cómo la conectividad de máquinas y sensores está redefiniendo los procesos de producción en plantas manufactureras modernas. Exploramos los principales beneficios, arquitecturas comunes y lecciones aprendidas en proyectos reales.</p>
+            <div class="blog-card__meta">
+              <span><i class="fa-regular fa-calendar"></i> 10 Mar 2026</span>
+              <span><i class="fa-regular fa-clock"></i> 5 min lectura</span>
+              <span><i class="fa-regular fa-user"></i> Equipo IoTeC</span>
+            </div>
+            <a href="/blog/introduccion-iot-industrial" class="btn--sm">Leer artículo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Grid de artículos -->
+        <div class="blog-posts__grid">
+
+          <article class="blog-card">
+            <a href="/blog/mqtt-vs-http-iot" class="blog-card__img-wrap">
+              <div class="blog-card__img-placeholder"><i class="fa-solid fa-network-wired fa-2x"></i></div>
+            </a>
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Tecnología</span>
+              <h3><a href="/blog/mqtt-vs-http-iot">MQTT vs. HTTP en aplicaciones IoT: ¿cuál elegir?</a></h3>
+              <p>Comparativa técnica entre los dos protocolos más usados en IoT, con ejemplos de cuándo aplicar cada uno en entornos industriales.</p>
+              <div class="blog-card__meta">
+                <span><i class="fa-regular fa-calendar"></i> 2 Mar 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 7 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <a href="/blog/iot-agricultura-precision" class="blog-card__img-wrap">
+              <div class="blog-card__img-placeholder"><i class="fa-solid fa-seedling fa-2x"></i></div>
+            </a>
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Agropecuario</span>
+              <h3><a href="/blog/iot-agricultura-precision">Agricultura de precisión con sensores IoT: caso de éxito</a></h3>
+              <p>Un recorrido por la implementación de monitoreo de suelos, microclima y riego automatizado en una empresa agrícola del Bajío.</p>
+              <div class="blog-card__meta">
+                <span><i class="fa-regular fa-calendar"></i> 20 Feb 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 6 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <a href="/blog/kafka-iot-streaming" class="blog-card__img-wrap">
+              <div class="blog-card__img-placeholder"><i class="fa-solid fa-stream fa-2x"></i></div>
+            </a>
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Tecnología</span>
+              <h3><a href="/blog/kafka-iot-streaming">Apache Kafka para streaming de datos IoT en tiempo real</a></h3>
+              <p>Por qué Kafka se ha convertido en la columna vertebral del procesamiento de eventos en arquitecturas IoT de alta frecuencia.</p>
+              <div class="blog-card__meta">
+                <span><i class="fa-regular fa-calendar"></i> 12 Feb 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 8 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <a href="/blog/stm32-nodo-edge" class="blog-card__img-wrap">
+              <div class="blog-card__img-placeholder"><i class="fa-solid fa-microchip fa-2x"></i></div>
+            </a>
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Hardware</span>
+              <h3><a href="/blog/stm32-nodo-edge">STM32 como nodo edge en sistemas de monitoreo industrial</a></h3>
+              <p>Diseño de nodos edge con microcontroladores STM32 para adquisición de datos en ambientes industriales adversos.</p>
+              <div class="blog-card__meta">
+                <span><i class="fa-regular fa-calendar"></i> 5 Feb 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 9 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <a href="/blog/monitoreo-ambiental-sensores" class="blog-card__img-wrap">
+              <div class="blog-card__img-placeholder"><i class="fa-solid fa-earth-americas fa-2x"></i></div>
+            </a>
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Ambiental</span>
+              <h3><a href="/blog/monitoreo-ambiental-sensores">Redes de sensores para monitoreo ambiental en tiempo real</a></h3>
+              <p>Arquitectura y lecciones aprendidas al desplegar redes distribuidas de sensores para calidad del aire y agua en zonas industriales.</p>
+              <div class="blog-card__meta">
+                <span><i class="fa-regular fa-calendar"></i> 28 Ene 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 6 min</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <a href="/blog/python-iot-adquisicion" class="blog-card__img-wrap">
+              <div class="blog-card__img-placeholder"><i class="fa-brands fa-python fa-2x"></i></div>
+            </a>
+            <div class="blog-card__body">
+              <span class="blog-card__cat">Tecnología</span>
+              <h3><a href="/blog/python-iot-adquisicion">Python en IoT: adquisición y análisis de datos desde el edge</a></h3>
+              <p>Cómo Python se ha posicionado como el lenguaje de referencia para el análisis de datos en dispositivos edge y pasarelas IoT.</p>
+              <div class="blog-card__meta">
+                <span><i class="fa-regular fa-calendar"></i> 15 Ene 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 7 min</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.blog-posts__grid -->
+
+        <!-- Paginación -->
+        <nav class="blog-pagination" aria-label="Paginación del blog">
+          <span class="blog-pagination__item blog-pagination__item--active" aria-current="page">1</span>
+          <a href="#" class="blog-pagination__item">2</a>
+          <a href="#" class="blog-pagination__item">3</a>
+          <span class="blog-pagination__dots">…</span>
+          <a href="#" class="blog-pagination__item blog-pagination__item--next" aria-label="Página siguiente">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </nav>
+
+      </div><!-- /.blog-posts -->
+
+      <!-- SIDEBAR -->
+      <aside class="blog-sidebar">
+
+        <div class="sidebar-widget">
+          <h4>Buscar</h4>
+          <form class="sidebar-search" role="search">
+            <input type="search" placeholder="Buscar artículos…" aria-label="Buscar artículos" />
+            <button type="submit" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+
+        <div class="sidebar-widget">
+          <h4>Categorías</h4>
+          <ul class="sidebar-cats">
+            <li><a href="#">Tecnología <span>3</span></a></li>
+            <li><a href="#">Manufactura <span>2</span></a></li>
+            <li><a href="#">Agropecuario <span>2</span></a></li>
+            <li><a href="#">Hardware <span>1</span></a></li>
+            <li><a href="#">Ambiental <span>1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h4>Recientes</h4>
+          <ul class="sidebar-recent">
+            <li>
+              <a href="/blog/introduccion-iot-industrial">
+                <span class="sidebar-recent__title">Introducción al IoT Industrial</span>
+                <span class="sidebar-recent__date">10 Mar 2026</span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog/mqtt-vs-http-iot">
+                <span class="sidebar-recent__title">MQTT vs. HTTP en IoT</span>
+                <span class="sidebar-recent__date">2 Mar 2026</span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog/iot-agricultura-precision">
+                <span class="sidebar-recent__title">Agricultura de precisión con IoT</span>
+                <span class="sidebar-recent__date">20 Feb 2026</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h4>Etiquetas</h4>
+          <div class="sidebar-tags">
+            <a href="#" class="sidebar-tag">IoT</a>
+            <a href="#" class="sidebar-tag">MQTT</a>
+            <a href="#" class="sidebar-tag">Python</a>
+            <a href="#" class="sidebar-tag">STM32</a>
+            <a href="#" class="sidebar-tag">Kafka</a>
+            <a href="#" class="sidebar-tag">Grafana</a>
+            <a href="#" class="sidebar-tag">Edge</a>
+            <a href="#" class="sidebar-tag">Agricultura</a>
+            <a href="#" class="sidebar-tag">Manufactura</a>
+            <a href="#" class="sidebar-tag">Azure IoT</a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div><!-- /.blog-layout -->
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="navbar__logo footer__logo">
+          <span class="logo-dot"></span>IoTeC
+        </a>
+        <p>Conectando el presente con el futuro a través del Internet de las Cosas.</p>
+        <div class="contact__social footer__social">
+          <a href="https://www.linkedin.com/company/iotec-ecosystems/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/IoTeC-ecosystems" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer__links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/#sectores">Sectores</a></li>
+          <li><a href="/#nosotros">Nosotros</a></li>
+          <li><a href="/#tecnologia">Tecnología</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Sectores</h4>
+        <ul>
+          <li><a href="/#sectores">Manufacturero</a></li>
+          <li><a href="/#sectores">Agropecuario</a></li>
+          <li><a href="/#sectores">Energético</a></li>
+          <li><a href="/#sectores">Transporte y Logística</a></li>
+          <li><a href="/#sectores">Monitoreo Ambiental</a></li>
+        </ul>
+      </div>
+      <div class="footer__links">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:iotec_infra@outlook.com"><i class="fa-solid fa-envelope"></i> iotec_infra@outlook.com</a></li>
+          <li><span><i class="fa-solid fa-location-dot"></i> León de los Aldama, Gto, México</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> IoTeC. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+  <script src="/js/main.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    const overlay   = document.getElementById('navOverlay');
+    function openMenu() {
+      navLinks.classList.add('open');
+      overlay.classList.add('active');
+      document.body.classList.add('no-scroll');
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+    function closeMenu() {
+      navLinks.classList.remove('open');
+      overlay.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+    hamburger.addEventListener('click', () => navLinks.classList.contains('open') ? closeMenu() : openMenu());
+    overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
+    // Scroll-to-top
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MQTT vs. HTTP en IoT — Blog IoTeC</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/blog.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header id="navbar" class="navbar scrolled">
+    <div class="container navbar__inner">
+      <a href="/" class="navbar__logo"><span class="logo-dot"></span>IoTeC</a>
+      <nav class="navbar__links" id="navLinks">
+        <a href="/">Inicio</a>
+        <a href="/#servicios">Servicios</a>
+        <a href="/#sectores">Sectores</a>
+        <a href="/#nosotros">Nosotros</a>
+        <a href="/#tecnologia">Tecnología</a>
+        <a href="/blog" class="active">Blog</a>
+        <a href="/#contacto">Contacto</a>
+      </nav>
+      <a href="/#contacto" class="btn btn--primary navbar__cta">Contáctanos</a>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+  <div id="navOverlay" class="nav-overlay" role="presentation"></div>
+
+  <section class="post-hero">
+    <div class="container">
+      <span class="post-hero__cat">Tecnología</span>
+      <h1>MQTT vs. HTTP en aplicaciones IoT: ¿cuál elegir?</h1>
+      <div class="post-hero__meta">
+        <span><i class="fa-regular fa-calendar"></i> 2 Mar 2026</span>
+        <span><i class="fa-regular fa-clock"></i> 7 min lectura</span>
+        <span><i class="fa-regular fa-user"></i> Equipo IoTeC</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="post-main">
+    <div class="container post-layout">
+
+      <div>
+        <article class="post-body">
+
+          <h2>Dos protocolos, dos filosofías</h2>
+          <p>
+            Cuando se diseña la capa de comunicación de un sistema IoT, la elección del protocolo de transporte
+            tiene implicaciones directas en el consumo de energía, el ancho de banda, la latencia y la complejidad
+            de implementación. Los dos protocolos más frecuentes son <strong>MQTT</strong> (Message Queuing Telemetry
+            Transport) y <strong>HTTP/REST</strong>.
+          </p>
+          <p>
+            La diferencia fundamental es el modelo de comunicación: HTTP sigue un modelo
+            <em>request-response</em> síncrono, mientras que MQTT usa un modelo
+            <em>publish-subscribe</em> asíncrono mediado por un broker.
+          </p>
+
+          <h2>HTTP/REST en IoT</h2>
+          <p>
+            HTTP es omnipresente: todo desarrollador lo conoce, las bibliotecas están en todos los lenguajes y
+            el ecosistema de herramientas (Postman, curl, etc.) es maduro. Sus ventajas en IoT:
+          </p>
+          <ul>
+            <li>Fácil interoperabilidad con backends web y APIs existentes.</li>
+            <li>Soporte nativo de TLS/HTTPS sin configuración adicional.</li>
+            <li>Stateless por diseño, lo que simplifica la escalabilidad de los servidores.</li>
+          </ul>
+          <p>Sus desventajas en entornos IoT de baja potencia o alta frecuencia son significativas:</p>
+          <ul>
+            <li>Overhead de encabezados elevado (cientos de bytes por solicitud vs. 2 bytes de cabecera MQTT).</li>
+            <li>Modelo polled: el dispositivo debe preguntar periódicamente si hay comandos nuevos.</li>
+            <li>Conexión TCP por solicitud consume energía en dispositivos con batería.</li>
+          </ul>
+
+          <h2>MQTT y el modelo pub/sub</h2>
+          <p>
+            MQTT fue diseñado en 1999 por IBM para telemetría en oleoductos con conexiones satelitales de baja
+            velocidad. Sus características lo hacen ideal para IoT industrial:
+          </p>
+          <ul>
+            <li><strong>Cabecera mínima de 2 bytes</strong> para mensajes de control.</li>
+            <li><strong>Tres niveles de QoS</strong> (0, 1, 2) que permiten balancear entre velocidad y garantía
+              de entrega según el caso de uso.</li>
+            <li><strong>Will message (LWT):</strong> el broker notifica a los suscriptores cuando un cliente se
+              desconecta inesperadamente.</li>
+            <li><strong>Retained messages:</strong> un nuevo suscriptor recibe el último valor publicado inmediatamente.</li>
+            <li>Conexión TCP persistente que mantiene sesión y reduce el overhead de handshake.</li>
+          </ul>
+
+          <h2>Comparativa técnica resumida</h2>
+          <pre><code>Característica        MQTT            HTTP/REST
+─────────────────────────────────────────────
+Modelo                Pub/Sub         Req/Res
+Sobrecarga cabecera   2 bytes         ~200-800 bytes
+Latencia              Muy baja        Media-alta
+Conexión              Persistente     Por solicitud
+Soporte bidireccional Nativo          Require polling
+Seguridad TLS         Sí (puerto 8883) Sí (HTTPS)
+Ideal para            Telemetría      APIs e integrac.</code></pre>
+
+          <h2>¿Cuándo usar cada uno?</h2>
+          <p>
+            En proyectos IoTeC seguimos esta heurística para elegir el protocolo:
+          </p>
+          <ul>
+            <li>Usa <strong>MQTT</strong> cuando tengas muchos dispositivos enviando datos frecuentemente
+              (más de una lectura por segundo), redes inestables o hardware con restricciones de energía.</li>
+            <li>Usa <strong>HTTP/REST</strong> para configuración remota de dispositivos, integración con
+              sistemas ERP/MES, o cuando el volumen de mensajes sea bajo y la prioridad sea la simplicidad
+              de integración.</li>
+            <li>Considera <strong>combinarlos</strong>: MQTT para el flujo de telemetría y HTTP para
+              operaciones de administración y alertas críticas que requieren confirmación.</li>
+          </ul>
+
+          <blockquote>
+            En nuestra experiencia, migrar de HTTP polling a MQTT en una red de 200 sensores redujo el
+            tráfico de red en un 78 % y la latencia promedio de 800 ms a menos de 50 ms.
+          </blockquote>
+
+          <h2>Implementación rápida con Python y Paho-MQTT</h2>
+          <pre><code>import paho.mqtt.client as mqtt
+
+BROKER = "broker.iotec.internal"
+TOPIC  = "planta/linea-1/temperatura"
+
+def on_message(client, userdata, msg):
+    print(f"[{msg.topic}] {msg.payload.decode()}")
+
+client = mqtt.Client()
+client.on_message = on_message
+client.connect(BROKER, 1883, 60)
+client.subscribe(TOPIC, qos=1)
+client.loop_forever()</code></pre>
+          <p>
+            Con menos de 15 líneas de código Python tienes un suscriptor funcional que recibe
+            lecturas de temperatura en tiempo real usando QoS 1 (entrega garantizada al menos una vez).
+          </p>
+
+          <div class="post-tags">
+            <strong>Etiquetas:</strong>
+            <a href="#" class="sidebar-tag">MQTT</a>
+            <a href="#" class="sidebar-tag">HTTP</a>
+            <a href="#" class="sidebar-tag">Python</a>
+            <a href="#" class="sidebar-tag">Protocolos IoT</a>
+            <a href="#" class="sidebar-tag">Conectividad</a>
+          </div>
+
+        </article>
+
+        <nav class="post-nav">
+          <a href="/blog/introduccion-iot-industrial" class="post-nav__item">
+            <span>← Anterior</span>
+            <strong>Introducción al IoT Industrial</strong>
+          </a>
+          <a href="/blog/iot-agricultura-precision" class="post-nav__item post-nav__item--next">
+            <span>Siguiente →</span>
+            <strong>Agricultura de precisión con IoT</strong>
+          </a>
+        </nav>
+      </div>
+
+      <aside class="blog-sidebar">
+        <div class="sidebar-widget">
+          <h4>Sobre este artículo</h4>
+          <ul class="sidebar-recent">
+            <li><span class="sidebar-recent__title">Lectura: 7 minutos</span></li>
+            <li><span class="sidebar-recent__title">Categoría: Tecnología</span></li>
+            <li><span class="sidebar-recent__title">Autor: Equipo IoTeC</span></li>
+            <li><span class="sidebar-recent__date">Publicado: 2 Mar 2026</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h4>Recientes</h4>
+          <ul class="sidebar-recent">
+            <li>
+              <a href="/blog/introduccion-iot-industrial">
+                <span class="sidebar-recent__title">Introducción al IoT Industrial</span>
+                <span class="sidebar-recent__date">10 Mar 2026</span>
+              </a>
+            </li>
+            <li>
+              <a href="/blog/iot-agricultura-precision">
+                <span class="sidebar-recent__title">Agricultura de precisión con IoT</span>
+                <span class="sidebar-recent__date">20 Feb 2026</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h4>Etiquetas</h4>
+          <div class="sidebar-tags">
+            <a href="#" class="sidebar-tag">IoT</a>
+            <a href="#" class="sidebar-tag">MQTT</a>
+            <a href="#" class="sidebar-tag">Python</a>
+            <a href="#" class="sidebar-tag">STM32</a>
+            <a href="#" class="sidebar-tag">Kafka</a>
+            <a href="#" class="sidebar-tag">Grafana</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="navbar__logo footer__logo"><span class="logo-dot"></span>IoTeC</a>
+        <p>Conectando el presente con el futuro a través del Internet de las Cosas.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; <span id="year"></span> IoTeC. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Volver arriba">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    const overlay   = document.getElementById('navOverlay');
+    function openMenu()  { navLinks.classList.add('open'); overlay.classList.add('active'); document.body.classList.add('no-scroll'); hamburger.setAttribute('aria-expanded','true'); }
+    function closeMenu() { navLinks.classList.remove('open'); overlay.classList.remove('active'); document.body.classList.remove('no-scroll'); hamburger.setAttribute('aria-expanded','false'); }
+    hamburger.addEventListener('click', () => navLinks.classList.contains('open') ? closeMenu() : openMenu());
+    overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => scrollTopBtn.classList.toggle('visible', window.scrollY > 400));
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
